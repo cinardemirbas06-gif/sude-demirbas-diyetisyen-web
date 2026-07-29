@@ -171,7 +171,9 @@ p { line-height: 1.8; color: var(--color-text); }
 
 /* ============ BADGES ============ */
 .badge-list { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-.badge { background: var(--color-white); border: 1px solid var(--color-gold); color: var(--color-primary); padding: 10px 22px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; box-shadow: var(--shadow-soft); }
+.badge { display: flex; flex-direction: column; align-items: center; text-align: center; background: var(--color-white); border: 1px solid var(--color-gold); color: var(--color-primary); padding: 12px 22px; border-radius: 16px; font-size: 0.9rem; font-weight: 500; box-shadow: var(--shadow-soft); transition: var(--transition); }
+.badge:hover { box-shadow: var(--shadow-strong); border-color: var(--color-accent); }
+.badge .hover-expand-desc p { color: var(--color-text); }
 
 /* ============ PHILOSOPHY ============ */
 .philosophy-inner { max-width: 700px; margin: 0 auto; text-align: center; }
@@ -259,8 +261,16 @@ p { line-height: 1.8; color: var(--color-text); }
 /* ============ TRUST STRIP ============ */
 .trust-strip { padding: 30px 0; background: var(--color-primary); }
 .trust-strip .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-.trust-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; background: rgba(250,246,238,0.08); color: var(--color-cream); font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(201,162,75,0.35); }
+.trust-pill { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 12px 22px; border-radius: 18px; background: rgba(250,246,238,0.08); color: var(--color-cream); font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(201,162,75,0.35); transition: var(--transition); }
+.trust-pill:hover { background: rgba(250,246,238,0.14); border-color: var(--color-gold); }
+.trust-pill-top { display: inline-flex; align-items: center; gap: 8px; }
 .trust-pill svg { width: 16px; height: 16px; color: var(--color-gold); }
+.trust-pill .hover-expand-desc p { color: rgba(250,246,238,0.78); }
+
+/* ============ HOVER-EXPAND WIDGETS ============ */
+.hover-expand-desc { max-height: 0; overflow: hidden; opacity: 0; width: 100%; transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease; margin-top: 0; }
+.hover-expand:hover .hover-expand-desc { max-height: 160px; opacity: 1; margin-top: 10px; }
+.hover-expand-desc p { font-size: 0.78rem; line-height: 1.5; max-width: 220px; font-weight: 400; }
 
 /* ============ PRICING ============ */
 .pricing-grid { align-items: stretch; }
@@ -270,17 +280,17 @@ p { line-height: 1.8; color: var(--color-text); }
 .pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: var(--color-white); padding: 6px 18px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; box-shadow: var(--shadow-color-pop); }
 .pricing-name { margin-bottom: 6px; }
 .pricing-sub { color: var(--color-gold); font-weight: 600; font-size: 0.85rem; margin-bottom: 22px; }
-.pricing-price { font-family: var(--font-heading); font-size: 2.6rem; color: var(--color-primary); margin-bottom: 4px; }
-.pricing-price span { font-size: 1rem; font-family: var(--font-body); color: var(--color-text); font-weight: 400; }
 .pricing-features { text-align: left; margin: 26px 0; flex-grow: 1; display: flex; flex-direction: column; gap: 14px; }
 .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; }
 .pricing-features svg { width: 18px; height: 18px; color: var(--color-accent); flex-shrink: 0; margin-top: 2px; }
 
 /* ============ GALLERY STRIP ============ */
 .gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-.gallery-item { aspect-ratio: 1; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.85); transition: var(--transition); }
+.gallery-item { position: relative; overflow: hidden; aspect-ratio: 1; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.85); transition: var(--transition); }
 .gallery-item svg { width: 28px; height: 28px; }
 .gallery-item:hover { transform: scale(1.06); box-shadow: var(--shadow-strong); }
+.gallery-caption { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(11,46,34,0.82); color: var(--color-cream); font-size: 0.74rem; font-weight: 600; padding: 10px 6px; text-align: center; transform: translateY(100%); transition: transform 0.3s ease; }
+.gallery-item:hover .gallery-caption { transform: translateY(0); }
 .gallery-item:nth-child(1) { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); }
 .gallery-item:nth-child(2) { background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)); }
 .gallery-item:nth-child(3) { background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light)); }
@@ -336,5 +346,8 @@ p { line-height: 1.8; color: var(--color-text); }
 
 /* ============ PRESS / CREDENTIALS STRIP ============ */
 .press-strip { text-align: center; }
-.press-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 10px; opacity: 0.85; }
-.press-list span { font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary); letter-spacing: 1px; }
+.press-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 10px; }
+.press-item { display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0.85; transition: var(--transition); padding: 6px 10px; }
+.press-item:hover { opacity: 1; }
+.press-item-name { font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary); letter-spacing: 1px; }
+.press-item .hover-expand-desc p { color: var(--color-text); }
