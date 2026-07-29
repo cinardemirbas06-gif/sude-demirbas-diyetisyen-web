@@ -13,9 +13,8 @@ const HEADER_HTML = `
     </div>
   </div>
   <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <span class="logo-name">Sude Demirbaş</span>
-      <span class="logo-tag">Diyetisyen</span>
+    <a href="index.html" class="logo logo-badge">
+      <img src="assets/logo.png" alt="Sude Demirbaş - Diyetisyen &amp; Beslenme Uzmanı">
     </a>
     <nav>
       <ul class="nav-list" id="nav-list">
@@ -38,7 +37,9 @@ const HEADER_HTML = `
 const FOOTER_HTML = `
   <div class="container footer-grid">
     <div class="footer-brand">
-      <span class="logo-name">Sude Demirbaş</span>
+      <a href="index.html" class="logo logo-badge">
+        <img src="assets/logo.png" alt="Sude Demirbaş - Diyetisyen &amp; Beslenme Uzmanı">
+      </a>
       <p class="footer-desc">Bilimsel temelli, kişiye özel beslenme programlarıyla sağlıklı ve sürdürülebilir bir yaşama giden yolda yanınızdayım.</p>
       <div class="footer-social">
         <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
